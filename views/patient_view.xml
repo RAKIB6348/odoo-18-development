@@ -7,6 +7,7 @@
             <field name="model">hospital.patient</field>
             <field name="arch" type="xml">
                 <list>
+                    <field name="pat_seq"/>
                     <field name="name"/>
                     <field name="age"/>
                     <field name="gender"/>
@@ -26,6 +27,11 @@
                         <field name="image" widget="image" class="oe_avatar"/>
                         <div class="oe_title">
                             <h1>
+                                <field name="pat_seq" readonly="1"/>
+                            </h1>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
                                 <field name="name" placeholder="PATIENT NAME"/>
                             </h1>
                         </div>
@@ -40,7 +46,7 @@
                             </group>
                         </group>
                     </sheet>
-                   <chatter/>
+                    <chatter/>
                 </form>
             </field>
         </record>
