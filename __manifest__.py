@@ -11,7 +11,7 @@
     'author': 'Fahim Hasan Rakibr',
     'website': 'https://yourwebsite.com',
     'license': 'LGPL-3',
-    'depends': [],
+    'depends': ['mail'],
     'data': [
         'security/ir.model.access.csv',
 
