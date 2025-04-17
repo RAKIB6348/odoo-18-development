@@ -7,14 +7,14 @@
             <field name="model">hospital.patient</field>
             <field name="arch" type="xml">
                 <list>
-                    <field name="pat_seq"/>
+                    <field name="pat_seq" decoration-bf="1"/>
                     <field name="name"/>
                     <field name="age"/>
                     <field name="gender"/>
                     <field name="doctor_id"/>
                     <field name="register_date"/>
                     <field name="phone"/>
-                    <field name="ref"/>
+                    <field name="ref" decoration-bf="1"/>
                 </list>
             </field>
         </record>
