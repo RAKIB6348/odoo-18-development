@@ -19,6 +19,7 @@ class Patient(models.Model):
     phone = fields.Char(string='Phone', tracking=True)
     doctor_id = fields.Many2one('res.users', string='Doctor', tracking=True)
     ref = fields.Char(string='Reference', tracking=True)
+    tag_ids = fields.Many2many('patient.tag', string='Tag')
 
 
     # sequence generate field

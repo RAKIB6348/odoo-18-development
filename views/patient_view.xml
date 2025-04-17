@@ -15,6 +15,7 @@
                     <field name="register_date"/>
                     <field name="phone"/>
                     <field name="ref" decoration-bf="1"/>
+                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                 </list>
             </field>
         </record>
@@ -42,11 +43,12 @@
                                 <field name="gender"/>
                                 <field name="phone"/>
                                 <field name="doctor_id"/>
+                                <field name="register_date"/>
                             </group>
                             <group>
                                 <field name="age"/>
                                 <field name="ref"/>
-                                <field name="register_date"/>
+                                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                             </group>
                         </group>
                     </sheet>

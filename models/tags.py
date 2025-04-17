@@ -8,3 +8,7 @@ class Tags(models.Model):
 
     name = fields.Char(string='Name', required=True)
     color = fields.Integer(string='Color')
+
+    _sql_constraints = [
+        ('name_uniq', 'unique (name)', "Tag name already exists!"),
+    ]
