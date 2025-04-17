@@ -3,7 +3,7 @@
     'version': '1.1.1',
     'summary': 'Manage hospital operations like patients, doctors, appointments, billing, and more.',
     'description': """
-        Comprehensive Hospital Management System for Odoo 17.
+        Comprehensive Hospital Management System for Odoo 18.
         Features include patient registration, doctor management, appointments,
         prescriptions, invoicing, and reports.
     """,

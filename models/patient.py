@@ -38,8 +38,17 @@ class Patient(models.Model):
                 vals['ref'] = self.env['ir.sequence'].next_by_code('hospital.patient.ref')
         return super(Patient, self).create(vals_list)
     
-    
+    # write method
     def write(self, vals):
         if not self.ref:
             vals['ref'] = self.env['ir.sequence'].next_by_code('hospital.patient.ref')
         return super(Patient, self).write(vals)
+
+
+    # copy method
+    def copy_data(self, default=None):
+        if default is None:
+            default = {}
+        if not default.get('name'):
+            default['name'] = self.name + "(copy)"
+        return super(Patient, self).copy_data(default)
