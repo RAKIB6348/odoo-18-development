@@ -12,13 +12,13 @@ class Patient(models.Model):
 
 
     image = fields.Binary(string='Image')
-    name = fields.Char(string='Name', required=True)
-    register_date = fields.Datetime(string='Register Date', default=datetime.now())
-    age = fields.Integer(string='Age')
-    gender = fields.Selection(string="Gender", selection=[('male', 'Male'), ('female', 'Female'), ], required=True, )
-    phone = fields.Char(string='Phone')
-    doctor_id = fields.Many2one('res.users', string='Doctor')
-    ref = fields.Char(string='Reference')
+    name = fields.Char(string='Name', required=True, tracking=True)
+    register_date = fields.Datetime(string='Checkup Date', default=datetime.now(), tracking=True)
+    age = fields.Integer(string='Age', tracking=True)
+    gender = fields.Selection(string="Gender", selection=[('male', 'Male'), ('female', 'Female'), ], required=True,tracking=True )
+    phone = fields.Char(string='Phone', tracking=True)
+    doctor_id = fields.Many2one('res.users', string='Doctor', tracking=True)
+    ref = fields.Char(string='Reference', tracking=True)
 
 
     # sequence generate field

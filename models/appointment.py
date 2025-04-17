@@ -25,10 +25,10 @@ class Appointment(models.Model):
         return super(Appointment, self).create(vals_list)
 
 
-    patient_id = fields.Many2one('hospital.patient', string='Patient')
+    patient_id = fields.Many2one('hospital.patient', string='Patient', tracking=True)
     gender = fields.Selection(string="Gender", selection=[('male', 'Male'), ('female', 'Female'),],related='patient_id.gender')
-    appointment_date = fields.Date(string='Appointment Date', default=date.today())
-    booking_date = fields.Datetime(string='Booking Date', default=datetime.now())
+    appointment_date = fields.Date(string='Appointment Date', default=date.today(), tracking=True)
+    booking_date = fields.Datetime(string='Booking Date', default=datetime.now(), tracking=True)
 
     # state field
     state = fields.Selection([
@@ -36,7 +36,7 @@ class Appointment(models.Model):
         ('process', 'In Progress'),
         ('confirm', 'Confirmed'),
         ('canceled', 'Cancelled')
-    ], 'Status', readonly=True, copy=False, default='draft', required=True)
+    ], 'Status', readonly=True, copy=False, default='draft', required=True, tracking=True)
 
 
     # button action
