@@ -29,6 +29,7 @@ class Appointment(models.Model):
     gender = fields.Selection(string="Gender", selection=[('male', 'Male'), ('female', 'Female'),],related='patient_id.gender')
     appointment_date = fields.Date(string='Appointment Date', default=date.today(), tracking=True)
     booking_date = fields.Datetime(string='Booking Date', default=datetime.now(), tracking=True)
+    doctor_id = fields.Many2one('res.users', string='Doctor')
 
     # state field
     state = fields.Selection([

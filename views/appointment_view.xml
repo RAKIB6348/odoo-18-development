@@ -6,10 +6,11 @@
             <field name="name">hospital.appointment.tree</field>
             <field name="model">hospital.appointment</field>
             <field name="arch" type="xml">
-                <list>
+                <list multi_edit="1">
                     <field name="app_seq" decoration-bf="1"/>
                     <field name="patient_id"/>
                     <field name="gender"/>
+                    <field name="doctor_id" widget="many2one_avatar_user"/>
                     <field name="activity_ids" widget="list_activity"/>
                     <field name="appointment_date"/>
                     <field name="booking_date"/>
@@ -45,6 +46,7 @@
                             <group>
                                 <field name="patient_id"/>
                                 <field name="gender"/>
+                                <field name="doctor_id" widget="many2one_avatar_user"/>
                             </group>
                             <group>
                                 <field name="appointment_date"/>
