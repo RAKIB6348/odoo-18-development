@@ -10,6 +10,7 @@
                     <field name="app_seq" decoration-bf="1"/>
                     <field name="patient_id"/>
                     <field name="gender"/>
+                    <field name="activity_ids" widget="list_activity"/>
                     <field name="appointment_date"/>
                     <field name="booking_date"/>
                     <field name="state" widget="badge"
