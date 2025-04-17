@@ -8,6 +8,7 @@ class Patient(models.Model):
     _description = 'Hospital Patient'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'pat_seq desc'
+    _rec_names_search = ['name','pat_seq']
 
 
 
