@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_patient_tag_tree" model="ir.ui.view">
+        <field name="name">patient.tag.tree</field>
+        <field name="model">patient.tag</field>
+        <field name="arch" type="xml">
+            <list string="Patient Tags">
+                <field name="name"/>
+                <field name="color" widget="color_picker"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_patient_tag_form" model="ir.ui.view">
+        <field name="name">patient.tag.form</field>
+        <field name="model">patient.tag</field>
+        <field name="arch" type="xml">
+            <form string="Patient Tag">
+                <sheet>
+                    <group>
+                        <field name="name" style="font-size: min(4vw, 2.6rem);" placeholder="Tag's Name"/>
+                        <field name="color" widget="color_picker"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_patient_tag" model="ir.actions.act_window">
+        <field name="name">Tags</field>
+        <field name="res_model">patient.tag</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create patient tags to organize your data!
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem id="menu_patient_tag"
+              name="Tags"
+              parent="menu_patient_config_root"
+              action="action_patient_tag"
+              sequence="0"/>
+</odoo>

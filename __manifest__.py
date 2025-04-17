@@ -20,6 +20,7 @@
         'views/menu.xml',
         'views/patient_view.xml',
         'views/appointment_view.xml',
+        'views/patient_tag_views.xml',
     ],
     'demo': [],
     'installable': True,
