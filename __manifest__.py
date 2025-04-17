@@ -19,6 +19,7 @@
 
         'views/menu.xml',
         'views/patient_view.xml',
+        'views/appointment_view.xml',
     ],
     'demo': [],
     'installable': True,

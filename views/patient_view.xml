@@ -11,8 +11,10 @@
                     <field name="name"/>
                     <field name="age"/>
                     <field name="gender"/>
+                    <field name="doctor_id"/>
                     <field name="register_date"/>
                     <field name="phone"/>
+                    <field name="ref"/>
                 </list>
             </field>
         </record>
@@ -39,9 +41,11 @@
                             <group>
                                 <field name="gender"/>
                                 <field name="phone"/>
+                                <field name="doctor_id"/>
                             </group>
                             <group>
                                 <field name="age"/>
+                                <field name="ref"/>
                                 <field name="register_date"/>
                             </group>
                         </group>

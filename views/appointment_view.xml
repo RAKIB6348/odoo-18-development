@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_appointment_tree" model="ir.ui.view">
+            <field name="name">hospital.appointment.tree</field>
+            <field name="model">hospital.appointment</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="app_seq"/>
+                    <field name="patient_id"/>
+                    <field name="gender"/>
+                    <field name="appointment_date"/>
+                    <field name="booking_date"/>
+                </list>
+            </field>
+        </record>
+
+
+        <record id="view_appointment_form" model="ir.ui.view">
+            <field name="name">hospital.appointment.form</field>
+            <field name="model">hospital.appointment</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="app_seq" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="patient_id"/>
+                                <field name="gender"/>
+                            </group>
+                            <group>
+                                <field name="appointment_date"/>
+                                <field name="booking_date"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_hospital_appointment" model="ir.actions.act_window">
+            <field name="name">Appointments</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hospital.appointment</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    <!-- Add Text Here -->
+                    Create New Appointment
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_appointment"
+                  name="Appointments"
+                  parent="menu_appointment_root"
+                  action="action_hospital_appointment"
+                  sequence="0"/>
+
+    </data>
+</odoo>

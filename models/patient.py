@@ -7,6 +7,7 @@ class Patient(models.Model):
     _rec_name = 'name'
     _description = 'Hospital Patient'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    _order = 'pat_seq desc'
 
 
 
@@ -16,6 +17,8 @@ class Patient(models.Model):
     age = fields.Integer(string='Age')
     gender = fields.Selection(string="Gender", selection=[('male', 'Male'), ('female', 'Female'), ], required=True, )
     phone = fields.Char(string='Phone')
+    doctor_id = fields.Many2one('res.users', string='Doctor')
+    ref = fields.Char(string='Reference')
 
 
     # sequence generate field
@@ -30,4 +33,11 @@ class Patient(models.Model):
         for vals in vals_list:
             if vals.get('pat_seq', _("New")) == _("New"):
                 vals['pat_seq'] = self.env['ir.sequence'].next_by_code('hospital.patient') or _("New")
+                vals['ref'] = self.env['ir.sequence'].next_by_code('hospital.patient.ref')
         return super(Patient, self).create(vals_list)
+    
+    
+    def write(self, vals):
+        if not self.ref:
+            vals['ref'] = self.env['ir.sequence'].next_by_code('hospital.patient.ref')
+        return super(Patient, self).write(vals)
