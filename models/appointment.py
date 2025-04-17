@@ -30,6 +30,11 @@ class Appointment(models.Model):
     appointment_date = fields.Date(string='Appointment Date', default=date.today(), tracking=True)
     booking_date = fields.Datetime(string='Booking Date', default=datetime.now(), tracking=True)
     doctor_id = fields.Many2one('res.users', string='Doctor')
+    ref = fields.Char(string='Reference', tracking=True)
+
+    @api.onchange('patient_id')
+    def onchange_ref_field(self):
+        self.ref = self.patient_id.ref
 
     # state field
     state = fields.Selection([

@@ -8,7 +8,7 @@
         prescriptions, invoicing, and reports.
     """,
     'category': 'Healthcare',
-    'author': 'Fahim Hasan Rakibr',
+    'author': 'Fahim Hasan Rakib',
     'website': 'https://yourwebsite.com',
     'license': 'LGPL-3',
     'depends': ['mail'],
