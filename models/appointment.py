@@ -29,3 +29,26 @@ class Appointment(models.Model):
     gender = fields.Selection(string="Gender", selection=[('male', 'Male'), ('female', 'Female'),],related='patient_id.gender')
     appointment_date = fields.Date(string='Appointment Date', default=date.today())
     booking_date = fields.Datetime(string='Booking Date', default=datetime.now())
+
+    # state field
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('process', 'In Progress'),
+        ('confirm', 'Confirmed'),
+        ('canceled', 'Cancelled')
+    ], 'Status', readonly=True, copy=False, default='draft', required=True)
+
+
+    # button action
+    def action_draft(self):
+        self.state = 'draft'
+
+
+    def action_process(self):
+        self.state = 'process'
+
+    def action_confirm(self):
+        self.state = 'confirm'
+
+    def action_cancel(self):
+        self.state = 'canceled'

@@ -12,6 +12,11 @@
                     <field name="gender"/>
                     <field name="appointment_date"/>
                     <field name="booking_date"/>
+                    <field name="state" widget="badge"
+                        decoration-info="state == 'draft'"
+                        decoration-warning="state == 'process'"
+                        decoration-success="state == 'confirm'"
+                        decoration-danger="state == 'canceled'"/>
                 </list>
             </field>
         </record>
@@ -22,6 +27,13 @@
             <field name="model">hospital.appointment</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button name="action_draft" type="object" string="Reset as Draft" class="oe_highlight" invisible="state not in ['confirm', 'canceled']"/>
+                        <button name="action_process" type="object" string="In Progress" class="oe_highlight" invisible="state != 'draft'"/>
+                        <button name="action_confirm" type="object" string="Confirm" class="oe_highlight" invisible="state != 'process'"/>
+                        <button name="action_cancel" type="object" string="Cancel"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,process,confirm"/>
+                    </header>
                     <sheet>
                         <div class="oe_title">
                             <h1>
